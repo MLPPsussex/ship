@@ -39,7 +39,7 @@ function next(){
  p+=2
  if(p>=ar.length){ ct1.stroke()
                    return}
- ang=ar[p+1]+a
+ ang=ar[p+1]
  ct1.lineTo(shp.x+ s*ar[p]*Math.cos(ang), shp.y - s*ar[p]*Math.sin(ang))
  ct1.stroke()
  setTimeout(next,1)       
