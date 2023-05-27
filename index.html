@@ -21,20 +21,20 @@ function drawShp(){
  ct1.beginPath()
  ang=ar[1]+a
  ct1.moveTo(shp.x + s*ar[0]*Math.cos(ang), shp.y- s*ar[0]*Math.sin(ang) )
- proc=setInterval(next,20)
+ next()
 } 
   
  drawShp() 
   
 function next(){
  p+=2
- if(p>=ar.length){clearInterval(proc);
-                   ct1.closePath()
+ if(p>=ar.length){ ct1.closePath()
                    ct1.stroke()
                    return}
  ang=ar[p+1]+a
  ct1.lineTo(shp.x+ s*ar[p]*Math.cos(ang), shp.y - s*ar[p]*Math.sin(ang))
  ct1.stroke()
+ setTimeout(next,1)       
  }
     </script>
   </body>
