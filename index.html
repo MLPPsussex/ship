@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<body>
+<canvas id="Canvas1" width="500" height="400"></canvas>
+<canvas id="Canvas2" width="400" height="400"></canvas>
+<script>
+var c1 = document.getElementById("Canvas1");
+var ct1 = c1.getContext("2d");
+
+var p=0, s=22, a=0, ang
+var shp={x:200, y:200}
+
+var ar=[4,0, 4,.175, 4,.349, 4,.524, 5,1.571, 4,2.618, 4,2.793, 4,2.967, 4,3.142, 4,3.665, 6,3.84, 6,5.585, 4,5.76]
+
+function drawShp(){
+ ct1.beginPath()
+ ang=ar[1]+a
+ ct1.moveTo(shp.x + s*ar[0]*Math.cos(ang/rad), shp.y- s*ar[0]*Math.sin(ang/rad) )
+ proc=setInterval(next,20)
+} 
+  
+ drawShp() 
+  
+function next(){
+ p+=2
+ if(p>=ar.length){clearInterval(proc);
+                   ct1.closePath()
+                   ct1.stroke()
+                   return}
+ ang=ar[p+1]+a
+ ct1.lineTo(shp.x+ s*ar[p]*Math.cos(ang/rad), shp.y - s*ar[p]*Math.sin(ang/rad))
+ ct1.stroke()
+ }
+    </script>
+  </body>
+</html>
