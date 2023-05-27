@@ -29,8 +29,7 @@ function drawShp(){
   
 function next(){
  p+=2
- if(p>=ar.length){ ct1.closePath()
-                   ct1.stroke()
+ if(p>=ar.length){ ct1.stroke()
                    return}
  ang=ar[p+1]+a
  ct1.lineTo(shp.x+ s*ar[p]*Math.cos(ang), shp.y - s*ar[p]*Math.sin(ang))
