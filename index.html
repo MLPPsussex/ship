@@ -5,13 +5,13 @@
 </head>
 <body>
 <canvas id="Canvas1" width="500" height="500"></canvas>
-  <button id="left">LEFT</button>
-  <button id="right">RIGHT</button>
+  <button id="left" onclick="left()">LEFT</button>
+  <button id="right" onclick="right()">RIGHT</button>
 
 <script>
 var c1 = document.getElementById("Canvas1");
 var ct1 = c1.getContext("2d");
-var p, s=15, ang
+var p, s=15, ang, a=0
 var shp={x:200, y:200}
 var ar=[ 7,5.585, 5,5.76, 4,.175, 4.5,.349, 4,.524, 5,1.571, 
         4,2.618, 4.5,2.793, 4,2.967, 5,3.665, 7,3.84, 7,5.585, 5.90,5.4,
@@ -22,10 +22,10 @@ function drawShp(flame){
  p=0
  ar[26]=flame
  ct1.beginPath()
- ang=ar[1]
+ ang=ar[1]+a
  ct1.moveTo(shp.x + s*ar[0]*Math.cos(ang), shp.y- s*ar[0]*Math.sin(ang) ) 
  for(p=2; p<ar.length; p+=2){
-  ang=ar[p+1]
+  ang=ar[p+1]+a
   ct1.lineTo(shp.x+ s*ar[p]*Math.cos(ang), shp.y - s*ar[p]*Math.sin(ang))
  }
  ct1.stroke()
@@ -35,6 +35,8 @@ function loop(){
   ct1.clearRect(0,0,500,500)
   drawShp(5.8+2*Math.random() )
 }
+  function right(){ a+=.02}
+  function left(){ a-=.02}
 
    setInterval(loop,100)
     </script>
