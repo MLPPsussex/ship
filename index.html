@@ -10,7 +10,7 @@
 var c1 = document.getElementById("Canvas1");
 var ct1 = c1.getContext("2d");
 
-var p=0, s=15, a=0, ang
+var p=0, s=15, ang
 var shp={x:200, y:200}
 
 var ar=[ 7,5.585, 5,5.76, 4,.175, 4.5,.349, 4,.524, 5,1.571, 
@@ -22,14 +22,18 @@ function drawShp(flame){
  p=0
  ar[26]=flame
  ct1.beginPath()
- ang=ar[1]+a
+ ang=ar[1]
  ct1.moveTo(shp.x + s*ar[0]*Math.cos(ang), shp.y- s*ar[0]*Math.sin(ang) )
  next()
 } 
   
  drawShp(7.3)
- n= prompt("Enter flame size >7")
- drawShp(n)
+ setTimeout(again,1000)
+ 
+ function again(){
+  n= prompt("Enter flame size >7")
+  drawShp(n)
+ }
   
 function next(){
  p+=2
